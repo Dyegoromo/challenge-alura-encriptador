@@ -102,12 +102,12 @@ body {
   height: 90vh;
   margin: 0 30px;
   display: flex;
-  justify-content: center;
   box-shadow: 10px 10px 30px var(--lightBlue400);
 }
 
 .container-txt-encriptado img {
-  width: 300px;
+  width: 80%;
+  margin-left: 40px;
   margin-top: 150px;
 }
 
@@ -127,7 +127,7 @@ body {
   color: var(--gray400);
 }
 
-/* -------output------- */
+/* -------footer------- */
 
 footer p {
   font-family: Arial, Helvetica, sans-serif;
@@ -136,4 +136,51 @@ footer p {
   font-weight: bold;
   text-align: center;
   margin-top: 20px;
+}
+
+/* -------encriptado------- */
+
+.div-encriptado {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: 100%;
+  justify-content: center;
+  align-content: center;
+  justify-self: center;
+  margin: 30px;
+}
+
+.parrafo-encriptado {
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.3rem;
+  color: var(--gray400);
+}
+
+.copy-btn {
+  width: 230px;
+  height: 40px;
+  border-radius: 18px;
+  border: 1.7px solid var(--darkBlue400);
+  cursor: pointer;
+  margin: 40px auto;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.8rem;
+}
+
+.btn-azul {
+  width: 230px;
+  height: 40px;
+  border-radius: 18px;
+  border: none;
+  background-color: var(--gray100);
+  color: rgb(98, 98, 98);
+  cursor: pointer;
+  margin: 40px auto;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.8rem;
+  font-weight: bold;
 }

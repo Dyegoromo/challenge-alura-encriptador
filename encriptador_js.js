@@ -1,11 +1,8 @@
 const d = document,
   $btnEncriptar = d.querySelector(".encriptar-btn"),
   $btnDescifrar = d.querySelector(".descifrar-btn"),
-  $txtInput = d.querySelector(".textarea-input");
-
-function copyTxt() {
-  navigator.clipboard.writeText($txtInput.value);
-}
+  $txtInput = d.querySelector(".textarea-input"),
+  $encriptadoContainer = d.querySelector(".container-txt-encriptado");
 
 $btnEncriptar.addEventListener("click", () => {
   let input = $txtInput.value.toLowerCase();
@@ -16,9 +13,20 @@ $btnEncriptar.addEventListener("click", () => {
   txtEncripted = txtEncripted.replaceAll("o", "ober");
   txtEncripted = txtEncripted.replaceAll("u", "ufat");
   console.log(txtEncripted);
+
+  $encriptadoContainer.innerHTML = `
+  <div class="div-encriptado">
+  <article
+            class="parrafo-encriptado"
+          >${txtEncripted}</article>
+          <button class="copy-btn">Copiar</button>
+          </div>
+  `;
 });
 
 $btnDescifrar.addEventListener("click", (e) => {
+  const $encriptadoContainer = d.querySelector(".container-txt-encriptado");
+
   let txt = $txtInput.value.toLowerCase();
   txt = txt.normalize(`NFD`).replace(/[\u0300-\u036f]/g, "");
   txtDecripted = txt.replaceAll("enter", "e");
@@ -27,47 +35,26 @@ $btnDescifrar.addEventListener("click", (e) => {
   txtDecripted = txtDecripted.replaceAll("ober", "o");
   txtDecripted = txtDecripted.replaceAll("ufat", "u");
   console.log(txtDecripted);
+
+  $encriptadoContainer.innerHTML = `
+  <div class="div-encriptado">
+  <article
+            class="parrafo-encriptado"
+          >${txtDecripted}</article>
+          <button class="copy-btn">Copiar</button>
+          </div>
+  `;
 });
 
-/* 
-$btnEncriptar.addEventListener("click", () => {
-  let input = $txtInput.value.toLowerCase();
-  input = input.normalize(`NFD`).replace(/[\u0300-\u036f]/g, "");
-  txtEncripted = input.replace(/a/gim, "ai");
-  txtEncripted = txtEncripted.replace(/e/gim, "enter");
-  txtEncripted = txtEncripted.replace(/i/gim, "imes");
-  txtEncripted = txtEncripted.replace(/o/gim, "ober");
-  txtEncripted = txtEncripted.replace(/u/gim, "ufat");
-  console.log(txtEncripted);
+$encriptadoContainer.addEventListener("click", (e) => {
+  const $copyButton = d.querySelector(".copy-btn"),
+    $contenedorInput = d.querySelector(".textarea-input"),
+    txtCopy = d.querySelector(".parrafo-encriptado").textContent;
+
+  if (e.target.matches(".copy-btn")) {
+    $contenedorInput.value = `${txtCopy}`;
+    $copyButton.textContent = "Copiado a la izquierda";
+    $copyButton.classList.add("btn-azul");
+    $copyButton.classList.remove("copy-btn");
+  }
 });
-
-$btnDescifrar.addEventListener("click", (e) => {
-  let txt = $txtInput.value.toLowerCase();
-  txt = txt.normalize(`NFD`).replace(/[\u0300-\u036f]/g, "");
-  txtDecripted = txt.replace(/ai/gim, "a");
-  txtDecripted = txtDecripted.replace(/enter/gim, "e");
-  txtDecripted = txtDecripted.replace(/imes/gim, "i");
-  txtDecripted = txtDecripted.replace(/ober/gim, "o");
-  txtDecripted = txtDecripted.replace(/ufat/gim, "u");
-  console.log(txtDecripted); */
-
-/*   $btnEncriptar.addEventListener("click", () => {
-    let input = $txtInput.value.toLowerCase();
-    input = input.normalize(`NFD`).replace(/[\u0300-\u036f]/g, "");
-    txtEncripted = input.replaceAll("a", "ai");
-    txtEncripted = txtEncripted.replaceAll("e", "enter");
-    txtEncripted = txtEncripted.replaceAll("i", "imes");
-    txtEncripted = txtEncripted.replaceAll("o", "ober");
-    txtEncripted = txtEncripted.replaceAll("u", "ufat");
-    console.log(txtEncripted);
-  });
-  
-  $btnDescifrar.addEventListener("click", (e) => {
-    let txt = $txtInput.value.toLowerCase();
-    txt = txt.normalize(`NFD`).replace(/[\u0300-\u036f]/g, "");
-    txtDecripted = txt.replaceAll("ai", "a");
-    txtDecripted = txtDecripted.replaceAll("enter", "e");
-    txtDecripted = txtDecripted.replaceAll("imes", "i");
-    txtDecripted = txtDecripted.replaceAll("ober", "o");
-    txtDecripted = txtDecripted.replaceAll("ufat", "u");
-    console.log(txtDecripted); */
