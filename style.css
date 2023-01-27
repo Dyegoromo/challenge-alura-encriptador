@@ -85,12 +85,30 @@ body {
   background-color: var(--darkBlue400);
   color: white;
   margin-right: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.9rem;
+}
+
+.encriptar-btn:hover {
+  background-color: darkkhaki;
+  border: solid 2px rgb(132, 128, 76);
+  color: rgb(82, 81, 51);
+  font-weight: bold;
 }
 
 .descifrar-btn {
   background-color: var(--lightBlue400);
   color: var(--darkBlue400);
   margin-left: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.9rem;
+}
+
+.descifrar-btn:hover {
+  background-color: darkkhaki;
+  border: solid 2px rgb(132, 128, 76);
+  color: rgb(82, 81, 51);
+  font-weight: bold;
 }
 
 /* -------output------- */
@@ -171,6 +189,13 @@ footer p {
   font-size: 0.8rem;
 }
 
+.copy-btn:hover {
+  background-color: darkkhaki;
+  border: solid 2px rgb(132, 128, 76);
+  color: rgb(82, 81, 51);
+  font-weight: bold;
+}
+
 .btn-azul {
   width: 230px;
   height: 40px;
@@ -183,4 +208,61 @@ footer p {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.8rem;
   font-weight: bold;
+}
+
+/*--------celular-------- */
+
+@media screen and (max-width: 1023px) {
+  /*--------diagramación-------- */
+  .content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .center-input {
+    width: 100vw;
+    max-height: 520px;
+  }
+
+  /*--------indicaciones-------- */
+  .intro-texto {
+    width: 100%;
+    max-height: 520px;
+  }
+
+  /*--------botones-------- */
+  .btns-input-container {
+    margin-bottom: 20px;
+    transform: translateX(-7px);
+  }
+
+  .center-input button {
+    width: 190px;
+  }
+
+  .encriptar-btn {
+    width: 190px;
+  }
+
+  .copy-btn {
+    width: 190px;
+  }
+
+  /*--------output elements-------- */
+  .container-txt-encriptado {
+    width: 90vw;
+    max-height: 420px;
+    margin: 0 auto;
+    transform: translateX(-7px);
+  }
+
+  .txt-encriptado {
+    width: 350px;
+    margin: 0 auto;
+    margin-top: -110px;
+  }
+
+  .container-txt-encriptado p {
+    font-size: 0.45rem;
+  }
 }
